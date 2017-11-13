@@ -26,7 +26,6 @@ void setup() {
 void draw() {
   if (count%speed == 0) {
     keactive = true;
-    background(95);
     world.update();
     
     

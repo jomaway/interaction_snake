@@ -47,7 +47,7 @@ class Snake {
   } // update
   
   public void display() {
-    stroke(255);
+    stroke(200);
     fill(farbe);
     rect(head.x*20,head.y*20,20,20);
     

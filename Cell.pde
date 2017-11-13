@@ -12,7 +12,7 @@ class Cell {
   } 
 
   public void display() {
-    stroke(255);
+    stroke(95);
     //fill(80,120,40); // green color
     fill(95); // grey color
     rect(x*size,y*size,size,size);
