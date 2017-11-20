@@ -21,7 +21,8 @@ class World {
   
   public void update() {
     if (snake.isAlive()){
-      display();
+      background(95);
+      //display();
       snake.update();
       if (snake.head.equals(food.position) ) {
          snake.eat();

@@ -7,13 +7,13 @@ OscP5 oscP5;
 World world;
 
 int count=0;
-int speed = 10; //if lower it's faster.
+int speed = 5; //if lower it's faster.
 boolean keactive;
-
 
 void setup() {
   size(840, 480);  // 42*20 , 24*20 size of grid;
-  frameRate(60);
+  smooth(4);
+  frameRate(30);
   
   // create World
   world = new World();
@@ -27,13 +27,8 @@ void draw() {
   if (count%speed == 0) {
     keactive = true;
     world.update();
-    
-    
   }
   count++;
-  
-   
-  // do nothing for now
 }
 
 void keyPressed() {
