@@ -34,6 +34,7 @@ class World {
     } else { displayLost(); }
   }
   
+  /*
   public void display() {
     for(int c=0; c<columns; c++) {
       for(int r=0;r<rows;r++) {
@@ -41,6 +42,7 @@ class World {
       }
     }
   }
+  */
   
   public void displayLost() {
     int x = 9;

@@ -16,7 +16,6 @@ class Snake {
   }
   
   public void eat() {
-    // TODO: add one to tail
     Vektor last;
     if (!tail.isEmpty()) {
       last = tail.get(tail.size() - 1);

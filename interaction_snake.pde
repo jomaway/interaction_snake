@@ -17,7 +17,6 @@ void setup() {
   
   // create World
   world = new World();
-  world.display();
   
   // setup osc for the controlls
   oscP5 = new OscP5(this,12000);
