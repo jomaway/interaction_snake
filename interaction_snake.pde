@@ -15,11 +15,12 @@ void setup() {
   smooth(4);
   frameRate(30);
   
-  // create World
-  world = new World();
-  
   // setup osc for the controlls
   oscP5 = new OscP5(this,12000);
+  
+  // create World
+  world = new World(oscP5);
+  
 }
 
 void draw() {
@@ -37,6 +38,8 @@ void keyPressed() {
       world.snake.moveLeft();
     } else if (keyCode == RIGHT) {
       world.snake.moveRight();
+    } else if (key == BACKSPACE) {
+      world.restart();
     }
   }
 }
@@ -44,11 +47,14 @@ void keyPressed() {
 /* incoming osc message are forwarded to the oscEvent method. */
 void oscEvent(OscMessage theOscMessage) {
   if(keactive){
-    if(theOscMessage.addrPattern().equals("/move"))
-    if (theOscMessage.get(0).stringValue().equals("left")) {
-      world.snake.moveLeft();
-    } else if (theOscMessage.get(0).stringValue().equals("right")) {
-      world.snake.moveRight();
+    if(theOscMessage.addrPattern().equals("/move")) {
+      if (theOscMessage.get(0).stringValue().equals("left")) {
+        world.snake.moveLeft();
+      } else if (theOscMessage.get(0).stringValue().equals("right")) {
+        world.snake.moveRight();
+      }
+    } else if (theOscMessage.addrPattern().equals("restart")) {
+      world.restart();
     }
   }
 }

@@ -4,12 +4,29 @@ class World {
   public Snake snake;
   private Food food;
   private Cell[][] grid = new Cell[columns][rows];
-  
   private int count=0;
+  
+  private OscP5 osc;
+  private NetAddress remoteLocation;
   
   public World() {
     snake = new Snake();
     food = new Food((int)random(columns),(int)random(rows));
+    
+    // initialise the grid 
+    for(int c=0; c<columns; c++) {
+      for(int r=0;r<rows;r++) {
+         grid[c][r] = new Cell(c,r);
+      }
+    }
+  } // constructor
+  
+  public World(OscP5 osc) {
+    snake = new Snake();
+    food = new Food((int)random(columns),(int)random(rows));
+    // osc stuff
+    this.osc = osc;
+    remoteLocation = new NetAddress("127.0.0.1",12000);
     
     // initialise the grid 
     for(int c=0; c<columns; c++) {
@@ -31,18 +48,17 @@ class World {
       }
       food.display();
       count++;
-    } else { displayLost(); }
-  }
-  
-  /*
-  public void display() {
-    for(int c=0; c<columns; c++) {
-      for(int r=0;r<rows;r++) {
-        grid[c][r].display();
-      }
+    } else { 
+      displayLost(); 
+      OscMessage msg = new OscMessage("/gamestatus");
+      msg.add("dead");
+      osc.send(msg, remoteLocation);
     }
   }
-  */
+  
+  public void restart() {
+    snake = new Snake();
+  }
   
   public void displayLost() {
     int x = 9;
@@ -71,5 +87,8 @@ class World {
     grid[x+16][y-1].display(lostcolor);
     
     grid[x+23][y-6].display(lostcolor);
+    
+    textSize(32);
+    text("Press BACKSPACE to restart!", 200, 80 );
   }
 }
