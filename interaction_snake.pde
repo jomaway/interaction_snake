@@ -52,6 +52,8 @@ void oscEvent(OscMessage theOscMessage) {
         world.snake.moveLeft();
       } else if (theOscMessage.get(0).stringValue().equals("right")) {
         world.snake.moveRight();
+      } else if (theOscMessage.get(0).stringValue().equals("restart")) {
+        world.restart(); 
       }
     } else if (theOscMessage.addrPattern().equals("restart")) {
       world.restart();
