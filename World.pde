@@ -26,7 +26,7 @@ class World {
     food = new Food((int)random(columns),(int)random(rows));
     // osc stuff
     this.osc = osc;
-    remoteLocation = new NetAddress("127.0.0.1",12000);
+    remoteLocation = new NetAddress("127.0.0.1",12001);
     
     // initialise the grid 
     for(int c=0; c<columns; c++) {
