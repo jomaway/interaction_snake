@@ -23,6 +23,16 @@ void setup() {
   
 }
 
+
+void stop()
+{
+  println("In stop");
+  OscMessage msg = new OscMessage("/gamestatus");
+  msg.add("exit");
+  oscP5.send(msg, new NetAddress("127.0.0.1",12001));
+  super.stop();
+}
+
 void draw() {
   if (count%speed == 0) {
     keactive = true;
