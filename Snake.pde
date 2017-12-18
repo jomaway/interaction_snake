@@ -25,6 +25,10 @@ class Snake {
     tail.add(new Vektor(last.x-direction.x,last.y-direction.y));
   }
   
+  public void die() {
+    this.dead = true;
+  }
+  
   public void update() {
     tail.addFirst(head);
     tail.removeLast();

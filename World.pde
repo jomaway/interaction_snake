@@ -23,6 +23,7 @@ class World {
   
   public World(OscP5 osc) {
     snake = new Snake();
+    snake.die();
     food = new Food((int)random(columns),(int)random(rows));
     // osc stuff
     this.osc = osc;
@@ -89,6 +90,6 @@ class World {
     grid[x+23][y-6].display(lostcolor);
     
     textSize(32);
-    text("Press BACKSPACE to restart!", 200, 80 );
+    text("Press (BACKSPACE) to restart!", 200, 80 );
   }
 }

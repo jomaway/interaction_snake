@@ -3,7 +3,7 @@ class Cell {
   // A cell object knows about its location in the grid 
   // as well as its size with the variables x,y,w,h
   private int x,y;   // x,y location
-  private int size = 20;   // width and height
+  private int size = 40;   // width and height
 
   // Cell Constructor
   Cell(int x, int y) {

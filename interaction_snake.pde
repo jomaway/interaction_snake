@@ -11,7 +11,7 @@ int speed = 5; //if lower it's faster.
 boolean keactive;
 
 void setup() {
-  size(840, 480);  // 42*20 , 24*20 size of grid;
+  size(1680, 960);  // 42*20 , 24*20 size of grid;
   smooth(4);
   frameRate(30);
   
