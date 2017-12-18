@@ -23,14 +23,12 @@ void setup() {
   
 }
 
-
-void stop()
+void doExit()
 {
   println("In stop");
   OscMessage msg = new OscMessage("/gamestatus");
   msg.add("exit");
   oscP5.send(msg, new NetAddress("127.0.0.1",12001));
-  super.stop();
 }
 
 void draw() {
@@ -50,6 +48,8 @@ void keyPressed() {
       world.snake.moveRight();
     } else if (key == BACKSPACE) {
       world.restart();
+    } else if (key == ESC){
+       doExit(); 
     }
   }
 }
