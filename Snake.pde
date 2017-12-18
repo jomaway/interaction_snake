@@ -52,10 +52,10 @@ class Snake {
   public void display() {
     stroke(200);
     fill(farbe);
-    rect(head.x*20,head.y*20,20,20);
+    rect(head.x*cellSize,head.y*cellSize,cellSize,cellSize);
     
     for(Vektor p: tail) {
-      rect(p.x*20,p.y*20,20,20);
+      rect(p.x*cellSize,p.y*cellSize,cellSize,cellSize);
     }
   }
   

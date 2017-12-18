@@ -10,7 +10,7 @@ class Food {
   public void display() {
     stroke(200);
     fill(farbe);
-    rect(position.x*20, position.y*20, 20, 20);
+    rect(position.x*cellSize, position.y*cellSize, cellSize, cellSize);
   }
   
   public void generateNewPosition(int maxX, int maxY) {

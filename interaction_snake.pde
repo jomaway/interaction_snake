@@ -9,6 +9,7 @@ World world;
 int count=0;
 int speed = 5; //if lower it's faster.
 boolean keactive;
+int cellSize = 40;
 
 void setup() {
   size(1680, 960);  // 42*20 , 24*20 size of grid;
